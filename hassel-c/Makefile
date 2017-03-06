@@ -1,4 +1,4 @@
-.PHONY: all clean
+
 
 CC = gcc
 CFLAGS = -g -Wall -O3 -std=gnu99 -I$(SRC_DIR) -I$(BUILD_DIR) -pthread -D_GNU_SOURCE
