@@ -11,7 +11,7 @@ from headerspace.hs import *
 from headerspace.tf import *
 from headerspace.slice import *
 from config_parser.cisco_router_parser import cisco_router
-from config_parser.helper import *
+from utils.helper import *
 from time import time
 import math
 import random

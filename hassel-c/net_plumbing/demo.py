@@ -9,7 +9,7 @@ from utils.wildcard import wildcard_create_bit_repeat
 from net_plumber import NetPlumber
 from time import time
 from config_parser.cisco_router_parser import cisco_router
-from examples.utils.network_loader import net_loader
+from examples.example_utils.network_loader import net_loader
 
 settings = {"rtr_names":["bbra_rtr",
              "bbrb_rtr",
@@ -28,7 +28,7 @@ settings = {"rtr_names":["bbra_rtr",
              "yoza_rtr",
              "yozb_rtr",
              ],
-            "input_path":"../examples/stanford/tf_stanford_backbone",
+            "input_path":"./examples/stanford/tf_stanford_backbone",
             "switch_id_multiplier":cisco_router.SWITCH_ID_MULTIPLIER,
             "port_type_multiplier":cisco_router.PORT_TYPE_MULTIPLIER,
             "mid_port_type_const":cisco_router.INTERMEDIATE_PORT_TYPE_CONST,
