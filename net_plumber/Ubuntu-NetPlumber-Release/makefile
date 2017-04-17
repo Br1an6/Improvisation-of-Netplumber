@@ -47,7 +47,7 @@ all: net_plumber
 net_plumber: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "net_plumber" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++  -o "net_plumber" $(OBJS) $(USER_OBJS) $(LIBS) -lpthread
 	@echo 'Finished building target: $@'
 	@echo ' '
 
