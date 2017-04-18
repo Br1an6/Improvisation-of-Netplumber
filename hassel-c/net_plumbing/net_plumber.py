@@ -26,7 +26,7 @@ class L2Switch(app_manager.RyuApp):
         msg = ev.msg
         dp = msg.datapath
         ofp = dp.ofproto
-        ofp_parser = dp.ofproto_v1_3__parser # using OFv1.3
+        ofp_parser = dp.ofproto_v1_3_parser # using OFv1.3
 
         actions = [ofp_parser.OFPActionOutput(ofp.OFPP_FLOOD)]
         out = ofp_parser.OFPPacketOut(
