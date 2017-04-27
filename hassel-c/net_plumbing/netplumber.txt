@@ -1,0 +1,184 @@
+********************
+table: B4
+********************
+Rule: B4_1 (match: xxx010xx, in_ports = [8], mask: None, rewrite: None, out_ports: [12])
+Pipelined To:
+Pipelined From:
+	B2_1 (101010xx,8 --> 5)
+	B2_2 (111010xx,8 --> 5)
+Affected By:
+Source Flow:
+====================
+********************
+table: B1
+********************
+Rule: B1_1 (match: 1010xxxx, in_ports = [1], mask: None, rewrite: None, out_ports: [2])
+Pipelined To:
+Pipelined From:
+	client (1010xxxx,1 --> 100)
+Affected By:
+Source Flow:
+  From port 1:
+	1010xxxx
+====================
+Rule: B1_2 (match: 10001xxx, in_ports = [1], mask: None, rewrite: None, out_ports: [2])
+Pipelined To:
+Pipelined From:
+	client (10001xxx,1 --> 100)
+Affected By:
+Source Flow:
+  From port 1:
+	10001xxx
+====================
+Rule: B1_3 (match: 10xxxxxx, in_ports = [1, 2], mask: None, rewrite: None, out_ports: [3])
+Pipelined To:
+	B3_1 (101xxxxx,3 --> 6)
+Pipelined From:
+	client (10xxxxxx,1 --> 100)
+Affected By:
+	B1_1 (1010xxxx,[1])
+	B1_2 (10001xxx,[1])
+Source Flow:
+  From port 1:
+	10xxxxxx - (
+	  1010xxxx U
+	  10001xxx
+	  )
+====================
+********************
+table: B2
+********************
+Rule: B2_1 (match: 1011xxxx, in_ports = [4], mask: D231, rewrite: D8, out_ports: [5])
+Pipelined To:
+	B4_1 (101010xx,5 --> 8)
+Pipelined From:
+Affected By:
+Source Flow:
+====================
+Rule: B2_2 (match: 10xxxxxx, in_ports = [4], mask: D159, rewrite: D96, out_ports: [5])
+Pipelined To:
+	B4_1 (111010xx,5 --> 8)
+Pipelined From:
+Affected By:
+	B2_1 (1011xxxx,[4])
+Source Flow:
+====================
+********************
+table: B3
+********************
+Rule: B3_1 (match: 101xxxxx, in_ports = [6, 11], mask: D248, rewrite: D7, out_ports: [7])
+Pipelined To:
+Pipelined From:
+	B1_3 (101xxxxx,6 --> 3)
+Affected By:
+Source Flow:
+  From port 6:
+	101xx111 - 1010x111
+====================
+********************
+source: client
+********************
+Pipelined To:
+	B1_1 (1010xxxx,100 --> 1)
+	B1_2 (10001xxx,100 --> 1)
+	B1_3 (10xxxxxx,100 --> 1)
+Source Flow:
+	1xxxxxxx
+********************
+table: B4
+********************
+Rule: B4_1 (match: xxx010xx, in_ports = [8], mask: None, rewrite: None, out_ports: [12])
+Pipelined To:
+Pipelined From:
+	B2_1 (101010xx,8 --> 5)
+	B2_2 (111010xx,8 --> 5)
+Affected By:
+Source Flow:
+  From port 8:
+	111010xx
+  From port 8:
+	111010xx
+====================
+********************
+table: B1
+********************
+Rule: B1_1 (match: 1010xxxx, in_ports = [1], mask: None, rewrite: None, out_ports: [2])
+Pipelined To:
+	B2_2 (1010xxxx,2 --> 4)
+Pipelined From:
+	client (1010xxxx,1 --> 100)
+Affected By:
+Source Flow:
+  From port 1:
+	1010xxxx
+====================
+Rule: B1_2 (match: 10001xxx, in_ports = [1], mask: None, rewrite: None, out_ports: [2])
+Pipelined To:
+	B2_2 (10001xxx,2 --> 4)
+Pipelined From:
+	client (10001xxx,1 --> 100)
+Affected By:
+Source Flow:
+  From port 1:
+	10001xxx
+====================
+Rule: B1_3 (match: 10xxxxxx, in_ports = [1, 2], mask: None, rewrite: None, out_ports: [3])
+Pipelined To:
+	B3_1 (101xxxxx,3 --> 6)
+Pipelined From:
+	client (10xxxxxx,1 --> 100)
+Affected By:
+	B1_1 (1010xxxx,[1])
+	B1_2 (10001xxx,[1])
+Source Flow:
+  From port 1:
+	10xxxxxx - (
+	  1010xxxx U
+	  10001xxx
+	  )
+====================
+********************
+table: B2
+********************
+Rule: B2_1 (match: 1011xxxx, in_ports = [4], mask: D231, rewrite: D8, out_ports: [5])
+Pipelined To:
+	B4_1 (101010xx,5 --> 8)
+Pipelined From:
+Affected By:
+Source Flow:
+====================
+Rule: B2_2 (match: 10xxxxxx, in_ports = [4], mask: D159, rewrite: D96, out_ports: [5])
+Pipelined To:
+	B4_1 (111010xx,5 --> 8)
+Pipelined From:
+	B1_1 (1010xxxx,4 --> 2)
+	B1_2 (10001xxx,4 --> 2)
+Affected By:
+	B2_1 (1011xxxx,[4])
+Source Flow:
+  From port 4:
+	11101xxx
+  From port 4:
+	1110xxxx
+====================
+********************
+table: B3
+********************
+Rule: B3_1 (match: 101xxxxx, in_ports = [6, 11], mask: D248, rewrite: D7, out_ports: [7])
+Pipelined To:
+Pipelined From:
+	B1_3 (101xxxxx,6 --> 3)
+Affected By:
+Source Flow:
+  From port 6:
+	101xx111 - 1010x111
+====================
+********************
+source: client
+********************
+Pipelined To:
+	B1_1 (1010xxxx,100 --> 1)
+	B1_2 (10001xxx,100 --> 1)
+	B1_3 (10xxxxxx,100 --> 1)
+Source Flow:
+	1xxxxxxx

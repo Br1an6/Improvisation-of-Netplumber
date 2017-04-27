@@ -4,18 +4,6 @@ access-list 4 deny   any
 access-list 5 permit 64.61.61.206
 access-list 5 permit 171.64.64.13
 access-list 30 permit 172.20.0.130
-access-list 79 permit 171.64.79.160
-access-list 79 permit 171.64.79.176
-access-list 79 permit 171.64.79.144
-access-list 79 permit 171.64.79.224
-access-list 79 permit 171.64.79.192
-access-list 79 permit 171.64.79.208
-access-list 79 permit 171.64.79.0
-access-list 79 permit 171.67.71.0
-access-list 79 permit 192.168.128.0
-access-list 79 permit 192.168.132.0
-access-list 79 permit 171.64.69.64
-access-list 79 permit 192.168.134.0
 access-list 88 permit any
 access-list 1301 remark CSD-CF: Don't match on highwire IPs, they need NAT
 access-list 1301 deny   171.64.249.0 0.0.0.255
